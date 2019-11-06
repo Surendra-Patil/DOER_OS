@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 import gi
 import os
 import csv
@@ -181,7 +180,7 @@ class MyWindow(Gtk.Window):
         # 2 -> path_to_store (~/.doer)
         # 3 -> path_to_dest (final directory where the tar files are located)
         self.default_list = {
-            "turtleblocks": [
+            "Turtleblocks": [
                 "echo Making Directory",
                 'mkdir -p "{2}/{1}"',
                 "echo Cloning git",
@@ -192,7 +191,7 @@ class MyWindow(Gtk.Window):
                 'rm -Rf "{2}/temp"',
                 "echo Done",
             ],
-            "physics_video_player": [
+            "Physics Video Player": [
                 "echo Making Directory",
                 'mkdir -p "{2}/{1}"',
                 "echo Cloning git",
@@ -203,6 +202,117 @@ class MyWindow(Gtk.Window):
                 'rm -Rf "{2}/temp"',
                 "echo Done",
             ],
+            "Solar System Animation": [
+                "echo Making Directory",
+                'mkdir -p "{2}/{1}"',
+                "echo Cloning git",
+                'echo "This may take a while..."',
+                'rm -Rf "{2}/temp/"',
+                'git clone "https://github.com/CLIxIndia-Dev/Solar_System_Animation.git" "{2}/temp/Solar_System_Animation.git" -v',
+                'rsync -av "{2}/temp/Solar_System_Animation.git" "{2}/{1}"',
+                'rm -Rf "{2}/temp"',
+                "echo Done",
+            ],
+            "Astroamer Element Hunt Activity": [
+                "echo Making Directory",
+                'mkdir -p "{2}/{1}"',
+                "echo Cloning git",
+                'echo "This may take a while..."',
+                'rm -Rf "{2}/temp/"',
+                'git clone "https://github.com/CLIxIndia-Dev/Astroamer_Element_Hunt_Activity.git" "{2}/temp/Astroamer_Element_Hunt_Activity.git" -v',
+                'rsync -av "{2}/temp/Astroamer_Element_Hunt_Activity.git" "{2}/{1}"',
+                'rm -Rf "{2}/temp"',
+                "echo Done",
+            ],
+            "Music Blocks": [
+                "echo Making Directory",
+                'mkdir -p "{2}/{1}"',
+                "echo Cloning git",
+                'echo "This may take a while..."',
+                'rm -Rf "{2}/temp/"',
+                'git clone "https://github.com/walterbender/musicblocks.git" "{2}/temp/musicblocks.git" -v',
+                'rsync -av "{2}/temp/musicblocks.git" "{2}/{1}"',
+                'rm -Rf "{2}/temp"',
+                "echo Done",
+            ],
+            "Open Story Tool": [
+                "echo Making Directory",
+                'mkdir -p "{2}/{1}"',
+                "echo Cloning git",
+                'echo "This may take a while..."',
+                'rm -Rf "{2}/temp/"',
+                'git clone "https://github.com/CLIxIndia-Dev/open-story-tool.git" "{2}/temp/open-story-tool.git" -v',
+                'rsync -av "{2}/temp/open-story-tool.git" "{2}/{1}"',
+                'rm -Rf "{2}/temp"',
+                "echo Done",
+            ],
+            "Ratio Patterns": [
+                "echo Making Directory",
+                'mkdir -p "{2}/{1}"',
+                "echo Cloning git",
+                'echo "This may take a while..."',
+                'rm -Rf "{2}/temp/"',
+                'git clone "https://github.com/CLIxIndia-Dev/Ratio-Patterns.git" "{2}/temp/Ratio-Patterns.git" -v',
+                'rsync -av "{2}/temp/Ratio-Patterns.git" "{2}/{1}"',
+                'rm -Rf "{2}/temp"',
+                "echo Done",
+            ],
+            "Run Kitty Run": [
+                "echo Making Directory",
+                'mkdir -p "{2}/{1}"',
+                "echo Cloning git",
+                'echo "This may take a while..."',
+                'rm -Rf "{2}/temp/"',
+                'git clone "https://github.com/CLIxIndia-Dev/runkittyrun.git" "{2}/temp/runkittyrun.git" -v',
+                'rsync -av "{2}/temp/runkittyrun.git" "{2}/{1}"',
+                'rm -Rf "{2}/temp"',
+                "echo Done",
+            ],
+            "Ages Puzzle": [
+                "echo Making Directory",
+                'mkdir -p "{2}/{1}"',
+                "echo Cloning git",
+                'echo "This may take a while..."',
+                'rm -Rf "{2}/temp/"',
+                'git clone "https://github.com/CLIxIndia-Dev/ages_puzzle.git" "{2}/temp/ages_puzzle.git" -v',
+                'rsync -av "{2}/temp/ages_puzzle.git" "{2}/{1}"',
+                'rm -Rf "{2}/temp"',
+                "echo Done",
+            ],
+            "Factorisation": [
+                "echo Making Directory",
+                'mkdir -p "{2}/{1}"',
+                "echo Cloning git",
+                'echo "This may take a while..."',
+                'rm -Rf "{2}/temp/"',
+                'git clone "https://github.com/CLIxIndia-Dev/factorisation.git" "{2}/temp/factorisation.git" -v',
+                'rsync -av "{2}/temp/factorisation.git" "{2}/{1}"',
+                'rm -Rf "{2}/temp"',
+                "echo Done",
+            ],
+            "Coins Liner Equations": [
+                "echo Making Directory",
+                'mkdir -p "{2}/{1}"',
+                "echo Cloning git",
+                'echo "This may take a while..."',
+                'rm -Rf "{2}/temp/"',
+                'git clone "https://github.com/CLIxIndia-Dev/coins_linear_eqn.git" "{2}/temp/coins_linear_eqn.git" -v',
+                'rsync -av "{2}/temp/coins_linear_eqn.git" "{2}/{1}"',
+                'rm -Rf "{2}/temp"',
+                "echo Done",
+            ],
+            "Ice Cubes in Lemonade": [
+                "echo Making Directory",
+                'mkdir -p "{2}/{1}"',
+                "echo Cloning git",
+                'echo "This may take a while..."',
+                'rm -Rf "{2}/temp/"',
+                'git clone "https://github.com/CLIxIndia-Dev/Ice-cubes-in-lemonade.git" "{2}/temp/Ice-cubes-in-lemonade.git" -v',
+                'rsync -av "{2}/temp/Ice-cubes-in-lemonade.git" "{2}/{1}"',
+                'rm -Rf "{2}/temp"',
+                "echo Done",
+            ],
+
         }
         self.supported_list = {
             "kolibri_doer": [
