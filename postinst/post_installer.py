@@ -15,6 +15,7 @@ import fcntl
 import subprocess
 
 PATH_TO_STORE = "~/.doer/"
+apache_html_path="/var/www/html/"
 
 
 def get_size(start_path="."):
@@ -187,7 +188,7 @@ class MyWindow(Gtk.Window):
                 'echo "This may take a while..."',
                 'rm -Rf "{2}/temp/"',
                 'git clone "https://github.com/sugarlabs/turtleblocksjs.git" "{2}/temp/turtleblock_git" -v',
-                'rsync -av "{2}/temp/turtleblock_git" "{2}/{1}"',
+                'rsync -av "{2}/temp/turtleblock_git" "{4}"',
                 'rm -Rf "{2}/temp"',
                 "echo Done",
             ],
@@ -198,7 +199,7 @@ class MyWindow(Gtk.Window):
                 'echo "This may take a while..."',
                 'rm -Rf "{2}/temp/"',
                 'git clone "https://github.com/CLIxIndia-Dev/physics-video-player.git" "{2}/temp/physics_video_player_git" -v',
-                'rsync -av "{2}/temp/physics_video_player_git" "{2}/{1}"',
+                'rsync -av "{2}/temp/physics_video_player_git" "{4}"',
                 'rm -Rf "{2}/temp"',
                 "echo Done",
             ],
@@ -209,7 +210,7 @@ class MyWindow(Gtk.Window):
                 'echo "This may take a while..."',
                 'rm -Rf "{2}/temp/"',
                 'git clone "https://github.com/CLIxIndia-Dev/Solar_System_Animation.git" "{2}/temp/Solar_System_Animation.git" -v',
-                'rsync -av "{2}/temp/Solar_System_Animation.git" "{2}/{1}"',
+                'rsync -av "{2}/temp/Solar_System_Animation.git" "{4}"',
                 'rm -Rf "{2}/temp"',
                 "echo Done",
             ],
@@ -220,7 +221,7 @@ class MyWindow(Gtk.Window):
                 'echo "This may take a while..."',
                 'rm -Rf "{2}/temp/"',
                 'git clone "https://github.com/CLIxIndia-Dev/Astroamer_Element_Hunt_Activity.git" "{2}/temp/Astroamer_Element_Hunt_Activity.git" -v',
-                'rsync -av "{2}/temp/Astroamer_Element_Hunt_Activity.git" "{2}/{1}"',
+                'rsync -av "{2}/temp/Astroamer_Element_Hunt_Activity.git" "{4}"',
                 'rm -Rf "{2}/temp"',
                 "echo Done",
             ],
@@ -231,7 +232,7 @@ class MyWindow(Gtk.Window):
                 'echo "This may take a while..."',
                 'rm -Rf "{2}/temp/"',
                 'git clone "https://github.com/walterbender/musicblocks.git" "{2}/temp/musicblocks.git" -v',
-                'rsync -av "{2}/temp/musicblocks.git" "{2}/{1}"',
+                'rsync -av "{2}/temp/musicblocks.git" "{4}"',
                 'rm -Rf "{2}/temp"',
                 "echo Done",
             ],
@@ -242,7 +243,7 @@ class MyWindow(Gtk.Window):
                 'echo "This may take a while..."',
                 'rm -Rf "{2}/temp/"',
                 'git clone "https://github.com/CLIxIndia-Dev/open-story-tool.git" "{2}/temp/open-story-tool.git" -v',
-                'rsync -av "{2}/temp/open-story-tool.git" "{2}/{1}"',
+                'rsync -av "{2}/temp/open-story-tool.git" "{4}"',
                 'rm -Rf "{2}/temp"',
                 "echo Done",
             ],
@@ -253,7 +254,7 @@ class MyWindow(Gtk.Window):
                 'echo "This may take a while..."',
                 'rm -Rf "{2}/temp/"',
                 'git clone "https://github.com/CLIxIndia-Dev/Ratio-Patterns.git" "{2}/temp/Ratio-Patterns.git" -v',
-                'rsync -av "{2}/temp/Ratio-Patterns.git" "{2}/{1}"',
+                'rsync -av "{2}/temp/Ratio-Patterns.git" "{4}"',
                 'rm -Rf "{2}/temp"',
                 "echo Done",
             ],
@@ -264,7 +265,7 @@ class MyWindow(Gtk.Window):
                 'echo "This may take a while..."',
                 'rm -Rf "{2}/temp/"',
                 'git clone "https://github.com/CLIxIndia-Dev/runkittyrun.git" "{2}/temp/runkittyrun.git" -v',
-                'rsync -av "{2}/temp/runkittyrun.git" "{2}/{1}"',
+                'rsync -av "{2}/temp/runkittyrun.git" "{4}"',
                 'rm -Rf "{2}/temp"',
                 "echo Done",
             ],
@@ -275,7 +276,7 @@ class MyWindow(Gtk.Window):
                 'echo "This may take a while..."',
                 'rm -Rf "{2}/temp/"',
                 'git clone "https://github.com/CLIxIndia-Dev/ages_puzzle.git" "{2}/temp/ages_puzzle.git" -v',
-                'rsync -av "{2}/temp/ages_puzzle.git" "{2}/{1}"',
+                'rsync -av "{2}/temp/ages_puzzle.git" "{4}"',
                 'rm -Rf "{2}/temp"',
                 "echo Done",
             ],
@@ -286,7 +287,7 @@ class MyWindow(Gtk.Window):
                 'echo "This may take a while..."',
                 'rm -Rf "{2}/temp/"',
                 'git clone "https://github.com/CLIxIndia-Dev/factorisation.git" "{2}/temp/factorisation.git" -v',
-                'rsync -av "{2}/temp/factorisation.git" "{2}/{1}"',
+                'rsync -av "{2}/temp/factorisation.git" "{4}"',
                 'rm -Rf "{2}/temp"',
                 "echo Done",
             ],
@@ -297,7 +298,7 @@ class MyWindow(Gtk.Window):
                 'echo "This may take a while..."',
                 'rm -Rf "{2}/temp/"',
                 'git clone "https://github.com/CLIxIndia-Dev/coins_linear_eqn.git" "{2}/temp/coins_linear_eqn.git" -v',
-                'rsync -av "{2}/temp/coins_linear_eqn.git" "{2}/{1}"',
+                'rsync -av "{2}/temp/coins_linear_eqn.git" "{4}"',
                 'rm -Rf "{2}/temp"',
                 "echo Done",
             ],
@@ -308,8 +309,22 @@ class MyWindow(Gtk.Window):
                 'echo "This may take a while..."',
                 'rm -Rf "{2}/temp/"',
                 'git clone "https://github.com/CLIxIndia-Dev/Ice-cubes-in-lemonade.git" "{2}/temp/Ice-cubes-in-lemonade.git" -v',
-                'rsync -av "{2}/temp/Ice-cubes-in-lemonade.git" "{2}/{1}"',
+                'rsync -av "{2}/temp/Ice-cubes-in-lemonade.git" "{4}"',
                 'rm -Rf "{2}/temp"',
+                "echo Done",
+            ],
+            "Offline Wikipedia": [
+                "echo Making Directory",
+                'mkdir -p "{2}/{1}"',
+                "echo Cloning git",
+                'echo "This may take a while..."',
+                'rm -Rf "{2}/temp/"',
+                'git clone "https://github.com/Surendra-Patil/kiwix-docker.git" "{2}/temp/kiwix-docker.git" -v',
+                'rsync -av "{2}/temp/kiwix-docker.git" "{2}/{1}"',
+                'rm -Rf "{2}/temp"',
+                'docker pull surendrapatil/kiwix',
+                'cd kiwix-docker',
+                'docker-compose up -d',
                 "echo Done",
             ],
 
@@ -417,12 +432,13 @@ class MyWindow(Gtk.Window):
                             name,
                             PATH_TO_STORE,
                             os.path.join(self.path_to_dest, name),
+                            apache_html_path,
                         )
                         for x in self.supported_list[name]
                     )
                 elif name in self.default_list:
                     self.commands.extend(
-                        x.format(size, name, PATH_TO_STORE, path)
+                        x.format(size, name, PATH_TO_STORE, path,apache_html_path)
                         for x in self.default_list[name]
                     )
                 else:
@@ -538,9 +554,23 @@ class MyWindow(Gtk.Window):
         self.add(self.screens[self.current_screen])
         self.screens[self.current_screen].show_all()
 
+def CheckRequirements():
+
+    apache_exist = subprocess.run("command -v apache2", shell=True)
+    if(apache_exist.returncode != 0):
+        print("Apache is not installed, please install apache2")
+
+    docker_exist = subprocess.run("command -v docker", shell=True)
+    if(docker_exist.returncode !=0):
+        print("Docker not installed. Follow procedure on https://docs.docker.com/install/linux/docker-ce/ubuntu/ ")
+
+    compose_exist = subprocess.run("command -v docker-compose", shell=True)
+    if(compose_exist.returncode !=0):
+        print("Docker-compose is not installed. Follow procedure on https://docs.docker.com/compose/install/")
 
 def main():
     win = MyWindow()
+    CheckRequirements()
     global PATH_TO_STORE
     # print(PATH_TO_STORE)
     PATH_TO_STORE = os.path.abspath(os.path.expanduser(PATH_TO_STORE))
