@@ -16,7 +16,8 @@ import subprocess
 
 PATH_TO_STORE = "~/.doer/"
 apache_html_path="/var/www/html/"
-
+site_available="/etc/apache2/sites-available/"
+host_path="/etc/hosts"
 
 def get_size(start_path="."):
     total_size = 0
@@ -180,6 +181,9 @@ class MyWindow(Gtk.Window):
         # 1 -> name
         # 2 -> path_to_store (~/.doer)
         # 3 -> path_to_dest (final directory where the tar files are located)
+        # 4 -> /var/www/html/
+        # 5 ->  /etc/apache2/sites-available
+        # 6 -> /etc/hosts
         self.default_list = {
             "Turtleblocks": [
                 "echo Making Directory",
@@ -190,6 +194,14 @@ class MyWindow(Gtk.Window):
                 'git clone "https://github.com/sugarlabs/turtleblocksjs.git" "{2}/temp/turtleblock_git" -v',
                 'rsync -av "{2}/temp/turtleblock_git" "{4}"',
                 'rm -Rf "{2}/temp"',
+                "echo Adding Apache Configuration",
+                'cp -a ./apache_conf/turtle.metastudio.conf {5}',
+                "echo Enabling the Configuration",
+                'a2ensite turtle.metastudio.conf',
+                "echo restarting apache"
+                'systemctl reload apache2',
+                "echo Adding host entry",
+                'echo "127.0.0.1 turtle.metastudio"  >> {6}',
                 "echo Done",
             ],
             "Physics Video Player": [
@@ -433,12 +445,14 @@ class MyWindow(Gtk.Window):
                             PATH_TO_STORE,
                             os.path.join(self.path_to_dest, name),
                             apache_html_path,
+                            site_available,
+                            host_path,
                         )
                         for x in self.supported_list[name]
                     )
                 elif name in self.default_list:
                     self.commands.extend(
-                        x.format(size, name, PATH_TO_STORE, path,apache_html_path)
+                        x.format(size, name, PATH_TO_STORE, path,apache_html_path,site_available,host_path,)
                         for x in self.default_list[name]
                     )
                 else:
