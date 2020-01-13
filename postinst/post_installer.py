@@ -445,6 +445,16 @@ class MyWindow(Gtk.Window):
                 'docker-compose up -d',
                 "echo Done",
             ],
+            "Kolibri": [
+                "echo Making Directory",
+                'mkdir -p "{2}/{1}"',
+                "echo Cloning git",
+                'echo "This may take a while..."',
+                'docker pull quantumobject/docker-kolibri',
+                'docker network create --subnet=172.12.50.0/24 doer-subnet',
+                'docker run -d -p 8080:8080 quantumobject/docker-kolibri',
+                "echo Done",
+            ],
 
         }
         self.supported_list = {
