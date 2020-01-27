@@ -448,11 +448,24 @@ class MyWindow(Gtk.Window):
             "Kolibri": [
                 "echo Making Directory",
                 'mkdir -p "{2}/{1}"',
-                "echo Cloning git",
+                "echo Pulling docker image",
                 'echo "This may take a while..."',
                 'docker pull quantumobject/docker-kolibri',
                 'docker network create --subnet=172.12.50.0/24 doer-subnet',
-                'docker run -d -p 8080:8080 quantumobject/docker-kolibri',
+                'docker run --ip 172.12.50.5 -d -p 8080:8080 --network doer-subnet quantumobject/docker-kolibri',
+                "echo Done",
+            ],
+            "NROER Discourse": [
+                "echo Making Directory",
+                "echo Cloning git",
+                'git clone "https://github.com/discourse/discourse_docker.git" "{2}/temp/discourse_docker" -v',
+                'rsync -av "{2}/temp/discourse_docker" "{2}/{1}"',
+                'rm -Rf "{2}/temp"',
+                'echo "This may take a while..."',
+
+                'cd "{2}/{1}"',
+                'pwd',
+                'docker network create --subnet=172.12.50.0/24 doer-subnet',
                 "echo Done",
             ],
 
